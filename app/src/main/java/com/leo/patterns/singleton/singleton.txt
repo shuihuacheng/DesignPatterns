@@ -1,0 +1,10 @@
+#单例模式实现关键点
+1.构造方法私有
+2.通过一个静态方法或者枚举返回单例类对象
+3.确保单例类的对象有且只有一个，尤其在多线程环境下
+4.确保单例类对象在反序列化时不会重新创建对象
+
+
+Android源码中的单例模式
+WindowManagerService、ActivityManagerService、LayoutInflater等 通过context.getSystemService(...)获取；
+从ContextImpl中可以看到，在虚拟机第一次加载该类时会注册各种ServiceFatcher,将这些服务以键值对的形式存在HashMap中，使用时根据key来获取对应的ServiceFatcher，然后通过ServiceFatcher对象的getService()获取具体的服务对象。
