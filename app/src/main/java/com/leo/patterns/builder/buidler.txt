@@ -1,0 +1,20 @@
+一.Builder模式定义
+将一个复杂对象的构建与它的表示分离，使得同样的构建过程可以创建不同的表示
+
+二.Builder模式使用场景
+1.相同的方法，不同的执行顺序，产生不同的事件结果
+2.多个部件或零件，都可以装配到一个对象中，但是产生的运行结果又不相同
+3.产品类非常复杂，或者产品类中的调用顺序不同产生了不同的作用
+4.当初始化一个对象特别复杂，如参数多，且很多参数都具有默认值时
+
+三.Builder模式UML类图，见buidler.png
+角色介绍:
+Product-产品/产品抽象类
+Builder-抽象Builder类，规范产品的组件，一般由子类实现具体的构建
+ConcreteBuilder-具体的Builder类
+Director-统一组装过程
+
+在现实开发中，Director角色经常会被省略。直接使用一个Builder来进行对象的组装，这个Builder通常为链式调用，关键点是每个set方法都返回自身。
+
+Android源码中Builder模式实现
+AlertDialog.Builder 同时扮演了builder、ConcreteBuilder、Director的角色

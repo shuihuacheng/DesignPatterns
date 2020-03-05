@@ -8,3 +8,7 @@
 Android源码中的单例模式
 WindowManagerService、ActivityManagerService、LayoutInflater等 通过context.getSystemService(...)获取；
 从ContextImpl中可以看到，在虚拟机第一次加载该类时会注册各种ServiceFatcher,将这些服务以键值对的形式存在HashMap中，使用时根据key来获取对应的ServiceFatcher，然后通过ServiceFatcher对象的getService()获取具体的服务对象。
+
+总结:
+优点:只有一个实例，减少内存开销，特别是需要频繁创建和销毁的对象；减少性能开销，当一个对象需要比较多资源时；避免对资源的多重占用；设置全局的访问点，优化和共享资源访问
+缺点:没有接口，扩展困难；单例类如果持有context,容易引发内存泄露，此时传给单例对象的Context最好是Application Context
