@@ -18,3 +18,9 @@ Director-统一组装过程
 
 Android源码中Builder模式实现
 AlertDialog.Builder 同时扮演了builder、ConcreteBuilder、Director的角色
+
+Volley里BaseRequest.Builder,可以继承BaseRequest.Builder添加子类新设置字段
+public static class Builder<B extends Builder<B>>{...}
+
+Picasso.Builder
+设置memoryCache、executor等
