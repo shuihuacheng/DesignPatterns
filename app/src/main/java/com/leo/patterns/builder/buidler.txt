@@ -24,3 +24,5 @@ public static class Builder<B extends Builder<B>>{...}
 
 Picasso.Builder
 设置memoryCache、executor等
+
+Protobuf生成的java类中Builder
